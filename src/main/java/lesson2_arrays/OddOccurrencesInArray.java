@@ -1,7 +1,6 @@
 package lesson2_arrays;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class OddOccurrencesInArray {
@@ -10,7 +9,7 @@ public class OddOccurrencesInArray {
     public static void main(String[] args) {
 
         int n = 67;
-        int a[] = {1, 2, 3, 4, 5, 2, 3, 4, 5};
+        int a[] = {1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6};
 
         System.out.println(solution(a));
     }

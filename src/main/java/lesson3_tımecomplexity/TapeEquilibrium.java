@@ -6,8 +6,7 @@ public class TapeEquilibrium {
 
         TapeEquilibrium tapeEquilibrium = new TapeEquilibrium();
         int A[] = {3, 1, 2, 4, 3};
-        int k = 3;
-        int res = tapeEquilibrium.solution(A);
+        int res =   tapeEquilibrium.solution(A);
 
         System.out.println(res);
 

@@ -1,6 +1,6 @@
 package lesson2_arrays;
 
-public class CycyicRotation {
+public class        CycyicRotation {
 
     public static void main(String[] args) {
 

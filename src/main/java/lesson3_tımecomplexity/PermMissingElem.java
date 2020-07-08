@@ -1,19 +1,39 @@
 package lesson3_tımecomplexity;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 public class PermMissingElem {
 
     public static void main(String[] args) {
         PermMissingElem permMissingElem = new PermMissingElem();
-        int A[] = {3, 1, 2, 4, 7, 6};
-        int k = 3;
-        int res = permMissingElem.solution(A);
+        int A[] = {1,2,3};
+        int res = permMissingElem.solution_2(A);
 
         System.out.println(res);
     }
+
+    private int solution_2(int[] a) {
+
+        if (a.length == 0)
+            return 0;
+
+        int missingNumber = 0;
+        for (int i = 1; i < a.length+1 ; i++) {
+            boolean found = false;
+            for (int j = 0; j < a.length; j++) {
+                if (i == a[j]){
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found){
+                missingNumber = i;
+                break;
+            }
+
+        }
+        return missingNumber;
+    }
+
 
     public int solution(int[] A) {
 

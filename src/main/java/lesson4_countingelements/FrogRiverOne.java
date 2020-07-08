@@ -9,17 +9,47 @@ public class FrogRiverOne {
 
         int A[] = {1, 3, 1, 4, 2, 3, 5, 4};
         int k = 5;
-        System.out.println(solution(k, A));
+        System.out.println(solution_2(k, A));
 
     }
+
+    private static int solution_2(int k, int[] a) {
+
+        if (k <= 0)
+            return 0;
+
+        if (a.length < k)
+            return -1;
+
+        Set jumpSet = new HashSet();
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] <= k) {
+                jumpSet.add(a[i]);
+                if (jumpSet.size() == k) {
+                    return i;
+                }
+            }
+        }
+
+        return -1;
+    }
+
+
+
+
+
+
+
 
     public static int solution(int X, int[] A) {
 
         Set<Integer> allJumps = new HashSet<>();
 
 
-        if (A.length < X)
+        if (A.length < X) {
             return -1;
+        }
 
         for (int i = 1; i <= X; i++) {
             allJumps.add(i);
@@ -29,8 +59,9 @@ public class FrogRiverOne {
 
             allJumps.remove(A[i]);
 
-            if (allJumps.isEmpty())
+            if (allJumps.isEmpty()) {
                 return i;
+            }
 
         }
 
