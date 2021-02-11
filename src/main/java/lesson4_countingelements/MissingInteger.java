@@ -18,7 +18,7 @@ public class MissingInteger {
         assertEquals(9, solution_2(new int[] {2, 1, 3, 4, 5, 6, 7, 8, 10}));
     }
 
-    private static int solution(int[] A) {
+    private static int solution_3(int[] A) {
 
         boolean found;
         int missing = 0;
@@ -43,7 +43,7 @@ public class MissingInteger {
         return missing;
     }
 
-    public static int solution_2(int[] A) {
+    public static int solution_4(int[] A) {
 
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < A.length; i++) {
@@ -62,6 +62,27 @@ public class MissingInteger {
             return A.length + 1;
         }
 
+        return 1;
+    }
+
+    public static int solution_2(int[] A) {
+
+        boolean bol[] = new boolean[A.length+2];
+
+        for (int i = 0; i <A.length; i++) {
+            if (A[i] < bol.length && A[i] > 0 )
+                bol[A[i]] = true;
+        }
+
+        for (int i = 1; i < bol.length; i++) {
+            System.out.println(bol[i]);
+        }
+
+        for (int i = 1; i < bol.length; i++) {
+            if (bol[i] == false){
+                return i;
+            }
+        }
         return 1;
     }
 

@@ -6,13 +6,31 @@ public class TapeEquilibrium {
 
         TapeEquilibrium tapeEquilibrium = new TapeEquilibrium();
         int A[] = {3, 1, 2, 4, 3};
-        int res =   tapeEquilibrium.solution(A);
+        int res = tapeEquilibrium.solution(A);
 
         System.out.println(res);
 
     }
 
+
     private int solution(int[] A) {
+
+        int min = Integer.MAX_VALUE;
+        int sum = 0;
+
+        for (int i = 0; i < A.length; i++) {
+            sum += A[i];
+            int secondSum = 0;
+            for (int j = i + 1; j < A.length; j++) {
+                secondSum += A[j];
+            }
+            min = Math.min(Math.abs(sum - secondSum), min);
+        }
+
+        return min;
+    }
+
+    private int solution_(int[] A) {
 
         int arrSum = 0;
         int minDiff = 0;

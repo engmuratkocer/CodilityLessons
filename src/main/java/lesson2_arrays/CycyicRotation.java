@@ -1,6 +1,6 @@
 package lesson2_arrays;
 
-public class        CycyicRotation {
+public class CycyicRotation {
 
     public static void main(String[] args) {
 
@@ -20,12 +20,37 @@ public class        CycyicRotation {
 
     }
 
+    public int[] solution_(int[] A, int K) {
+
+        for (int i = 0; i < K; i++) {
+
+            int lastElm = A[A.length - 1];
+            int next = 0;
+
+            for (int j = 0; j < A.length; j++) {
+                if (j == 0) {
+                    next = A[j + 1];
+                    A[j + 1] = A[j];
+                } else {
+                    if (j + 1 < A.length) {
+                        int temp = A[j + 1];
+                        A[j + 1] = next;
+                        next = temp;
+                    }
+                }
+            }
+            A[0] = lastElm;
+        }
+
+        return A;
+    }
+
     public int[] solution(int[] A, int K) {
 
         int arrayLength = A.length;
         int shiftCount = K % arrayLength;
 
-        if (validateInputs(A, K, arrayLength)) return null;
+        if (validateInputs(A, K, arrayLength)) return A;
 
         if (shiftCount == 0 || K == 0) {
             // no need to rotate

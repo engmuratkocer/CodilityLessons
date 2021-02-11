@@ -11,11 +11,30 @@ public class BinaryGap {
 
         int gap = solution(N);
 
-        System.out.println(" binaryGap : " + gap);
+        System.out.println(Integer.toBinaryString(N) + " binary gap is: " + gap);
 
     }
-
     private static int solution(int n) {
+
+        String binary = Integer.toBinaryString(n);
+        boolean open = true;
+        int maxCounter = 0;
+        int counter = 0;
+        for (char c:binary.toCharArray()
+             ) {
+            if (open && c == '1'){
+                open = false;
+            }else if (!open && c == '0'){
+                counter++;
+            }else if (!open && c == '1'){
+                maxCounter = Math.max(counter, maxCounter);
+                counter = 0;
+            }
+        }
+
+        return maxCounter;
+    }
+    private static int solution_n(int n) {
         if (n == 0){
             return 0;
         }
